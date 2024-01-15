@@ -1,0 +1,18 @@
+version: '3'
+services:
+  ansible:
+    container_name: ansible
+    image: ansible:latest  
+
+  docker:
+    container_name: docker-container
+    image: docker:dind
+    privileged: true
+    command: dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375
+
+  jenkins:
+    container_name: jenkins-blueocean2
+    image: myjenkins-blueocean:2.426.1-1  
+    ports:
+      - "8082:8080"
+      - "50000:50000"
