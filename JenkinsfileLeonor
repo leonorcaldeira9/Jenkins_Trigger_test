@@ -15,6 +15,24 @@ pipeline {
                 }
             }
         }
+    stage('Run Test 2') {
+            steps {
+                script {
+                    def response = httpRequest(url: "${env.BASE_API_URL}?testId=2")
+                    echo "Response from Test 2: ${response.content}"
+                    validResponseCodes: '100:599'
+                }
+            }
+        }
+    stage('Run Test 3') {
+            steps {
+                script {
+                    def response = httpRequest(url: "${env.BASE_API_URL}?testId=3")
+                    echo "Response from Test 3: ${response.content}"
+                    validResponseCodes: '100:599'
+                }
+            }
+        }
  }
 
  triggers {
