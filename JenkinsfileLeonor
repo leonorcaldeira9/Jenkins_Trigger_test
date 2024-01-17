@@ -2,14 +2,14 @@ pipeline {
  agent any
 
  environment {
-        BASE_API_URL = "https://3dda-92-250-101-41.ngrok-free.app/api/TestCases"
+        BASE_API_URL = "https://56de-92-250-101-41.ngrok-free.app/api/TestCases"
     }
 
  stages {
     stage('Run Test 1') {
             steps {
                 script {
-                    def response = httpRequest(url: "${env.BASE_API_URL}?testId=1")
+                    def response = httpRequest(url: "${BASE_API_URL}?testId=1")
                     echo "Response from Test 1: ${response.content}"
                     validResponseCodes: '100:599'
                 }
