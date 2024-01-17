@@ -22,7 +22,7 @@ pipeline {
 
  post {
         always {
-            echo 'The pipeline has completed'
+            echo 'The pipeline has completed, and this is leonor'
         }
     }
 }
