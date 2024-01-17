@@ -36,12 +36,12 @@ pipeline {
  }
 
  triggers {
-   githubPush()
+    githubPush()
  }
 
  post {
         always {
-            echo 'The pipeline has completed, and this is leonor'
+            echo 'The pipeline has completed'
         }
     }
 }
