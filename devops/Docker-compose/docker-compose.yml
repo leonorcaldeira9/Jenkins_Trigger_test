@@ -1,8 +1,8 @@
 version: '3'
 services:
-  ansible:
-    container_name: ansible
-    image: ansible:latest  
+  # ansible:
+  #   container_name: ansible
+  #   image: ansible:latest  
 
   docker:
     container_name: docker-container
@@ -15,4 +15,4 @@ services:
     image: myjenkins-blueocean:2.426.1-1  
     ports:
       - "8082:8080"
-      - "50000:50000"
+      - "50001:50000"
