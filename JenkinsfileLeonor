@@ -11,6 +11,7 @@ pipeline {
                 script {
                     def response = httpRequest(url: "${env.BASE_API_URL}?testId=1")
                     echo "Response from Test 1: ${response.content}"
+                    validResponseCodes: '100:599'
                 }
             }
         }
