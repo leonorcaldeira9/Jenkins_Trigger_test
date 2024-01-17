@@ -1,0 +1,28 @@
+pipeline {
+ agent any
+
+ environment {
+        BASE_API_URL = "https://d75d-92-250-101-41.ngrok-free.app/api/TestCases"
+    }
+
+ stages {
+    stage('Run Test 1') {
+            steps {
+                script {
+                    def response = httpRequest(url: "${env.BASE_API_URL}?testId=1")
+                    echo "Response from Test 1: ${response.content}"
+                }
+            }
+        }
+ }
+
+ triggers {
+   githubPush()
+ }
+
+ post {
+        always {
+            echo 'The pipeline has completed'
+        }
+    }
+}
