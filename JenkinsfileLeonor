@@ -2,7 +2,7 @@ pipeline {
  agent any
 
  environment {
-        BASE_API_URL = "https://1ce2-193-137-229-131.ngrok-free.app/api/TestCases"
+        BASE_API_URL = "https://bd3a-193-137-229-131.ngrok-free.app/api/TestCases"
     }
 
  stages {
@@ -41,7 +41,7 @@ pipeline {
 
  post {
         always {
-            echo 'The pipeline has completed!!!!!!!!!!!!!1'
+            echo 'The pipeline has completed!'
         }
     }
 }
