@@ -36,8 +36,8 @@ pipeline {
  }
 
  triggers {
-    githubPush()
- }
+        githubPush()
+    }
 
  post {
         always {
