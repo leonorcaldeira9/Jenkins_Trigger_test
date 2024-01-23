@@ -2,7 +2,7 @@ pipeline {
  agent any // Define que a pipeline pode ser executada em qualquer agente disponível.
 
  environment { // Define variáveis de ambiente utilizadas na pipeline.
-        BASE_API_URL = "https://a79b-2001-8a0-f2f7-de00-f1e4-507b-7946-c762.ngrok-free.app/api/TestCases"
+        BASE_API_URL = "https://c752-2001-8a0-f2f7-de00-f1e4-507b-7946-c762.ngrok-free.app/api/TestCases"
     }
 
  stages { // Define as etapas da pipeline.
