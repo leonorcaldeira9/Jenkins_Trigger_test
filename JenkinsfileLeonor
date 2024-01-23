@@ -1,32 +1,32 @@
 pipeline {
- agent any
+ agent any // Define que a pipeline pode ser executada em qualquer agente disponível.
 
- environment {
-        BASE_API_URL = "https://9651-193-137-229-131.ngrok-free.app/api/TestCases"
+ environment { // Define variáveis de ambiente utilizadas na pipeline.
+        BASE_API_URL = "https://a79b-2001-8a0-f2f7-de00-f1e4-507b-7946-c762.ngrok-free.app/api/TestCases"
     }
 
- stages {
-    stage('Run Test 1') {
+ stages { // Define as etapas da pipeline.
+    stage('Run Test 1') {  // Primeira etapa: Executar o Teste 1.
             steps {
                 script {
-                    def response = httpRequest(url: "${env.BASE_API_URL}?testId=1")
-                    echo "Response from Test 1: ${response.content}"
-                    validResponseCodes: '100:599'
+                    def response = httpRequest(url: "${env.BASE_API_URL}?testId=1") // Faz uma requisição HTTP para o URL definido com o testId 1 e armazena a resposta.
+                    echo "Response from Test 1: ${response.content}" // Imprime o conteúdo da resposta no log.
+                    validResponseCodes: '100:599' // Define os códigos de resposta HTTP válidos para esta etapa.
                 }
             }
         }
-    stage('Run Test 2') {
+    stage('Run Test 2') { // Segunda etapa: Executar o Teste 2.
             steps {
-                script {
+                script { // Mesmo processo que a etapa anterior, mas com o testId 2.
                     def response = httpRequest(url: "${env.BASE_API_URL}?testId=2")
                     echo "Response from Test 2: ${response.content}"
                     validResponseCodes: '100:599'
                 }
             }
         }
-    stage('Run Test 3') {
+    stage('Run Test 3') {  // Terceira etapa: Executar o Teste 3.
             steps {
-                script {
+                script {  // Mesmo processo que as etapas anteriores, mas com o testId 3.
                     def response = httpRequest(url: "${env.BASE_API_URL}?testId=3")
                     echo "Response from Test 3: ${response.content}"
                     validResponseCodes: '100:599'
@@ -35,13 +35,13 @@ pipeline {
         }
  }
 
- triggers {
+ triggers { // Define um trigger para a pipeline, que será ativado a cada push no GitHub.
         githubPush()
     }
 
- post {
+ post { // Define ações pós-execução que sempre ocorrem independentemente do resultado da pipeline.
         always {
-            echo 'The pipeline has completed!'
+            echo 'The pipeline has completed!' // Imprime uma mensagem no final da execução da pipeline.
         }
     }
 }
